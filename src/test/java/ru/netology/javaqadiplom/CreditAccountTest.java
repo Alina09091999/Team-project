@@ -234,4 +234,16 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(0, account.yearChange());
     }
+
+    @Test
+    public void shouldCalculateToYearChangeWithPositiveInitialBalance() {
+        CreditAccount account = new CreditAccount(100,
+                1500,15);
+
+
+        account.pay(200);
+        account.yearChange();
+
+        Assertions.assertEquals(-15, account.yearChange());
+    }
 }
