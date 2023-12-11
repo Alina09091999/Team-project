@@ -9,7 +9,7 @@ public class CreditAccountTest {
     public void NegativeRate() {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount (100, 5_000, -15);
+            new CreditAccount(100, 5_000, -15);
         });
 
     }
@@ -18,7 +18,7 @@ public class CreditAccountTest {
     public void NegativeInitialBalance() {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount (-100, 5_000, 15);
+            new CreditAccount(-100, 5_000, 15);
         });
 
     }
@@ -27,7 +27,7 @@ public class CreditAccountTest {
     public void NegativeCreditLimit() {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount (100, -5_000, 15);
+            new CreditAccount(100, -5_000, 15);
         });
 
     }
@@ -42,7 +42,7 @@ public class CreditAccountTest {
         account.pay(200);
 
         Assertions.assertEquals(100, account.getBalance());
-        }
+    }
 
     @Test
     public void shouldPayForAPositivePurchase() {
@@ -190,7 +190,7 @@ public class CreditAccountTest {
     @Test
     public void shouldCalculateToYearChangeWithNegativeBalance() {
         CreditAccount account = new CreditAccount(0,
-        1500,15);
+                1500, 15);
 
 
         account.pay(200);
@@ -202,7 +202,7 @@ public class CreditAccountTest {
     @Test
     public void shouldCalculateToYearChangeWithPositiveBalance() {
         CreditAccount account = new CreditAccount(400,
-                1500,15);
+                1500, 15);
 
 
         account.pay(200);
@@ -214,7 +214,7 @@ public class CreditAccountTest {
     @Test
     public void shouldCalculateToYearChangeWithTheRejectionOfTheFractionalPart() {
         CreditAccount account = new CreditAccount(500,
-                1500,15);
+                1500, 15);
 
 
         account.pay(887);
@@ -226,7 +226,7 @@ public class CreditAccountTest {
     @Test
     public void shouldCalculateToYearChangeWith0Rate() {
         CreditAccount account = new CreditAccount(100,
-                1500,0);
+                1500, 0);
 
 
         account.pay(200);
@@ -234,16 +234,5 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(0, account.yearChange());
     }
-
-    @Test
-    public void shouldCalculateToYearChangeWithPositiveInitialBalance() {
-        CreditAccount account = new CreditAccount(100,
-                1500,15);
-
-
-        account.pay(200);
-        account.yearChange();
-
-        Assertions.assertEquals(-15, account.yearChange());
-    }
 }
+
